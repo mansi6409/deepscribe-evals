@@ -91,7 +91,7 @@ Hallucinated: hydroxychloroquine 200 mg
 
 ---
 
-## 🎯 Solution Approach
+## Solution Approach
 
 ### Three-Tier Cascade Architecture
 
@@ -149,7 +149,7 @@ Our solution balances **speed, cost, and accuracy** using a cascade approach:
 - Correlation with ground truth (clinician-edited notes)
 - Synthetic perturbations (inject known errors → verify detection)
 - Bootstrap confidence intervals for uncertainty
-- Meta-evaluation metrics documented in `EVALUATION_GUIDE.md`
+- Meta-evaluation metrics documented in `In-depth documentation.md`
 
 ---
 
@@ -259,8 +259,6 @@ tier3:
     model: "gemini-1.5-flash"
     temperature: 0.0
 ```
-
-Easily tune for your use case without changing code!
 
 ---
 
@@ -423,20 +421,3 @@ streamlit run dashboard/app.py
 4. Model comparison framework
 
 ---
-
-## Questions?
-
-For clarification or discussion, reach out to the DeepScribe team at andrew@deepscribe.ai
-
----
-
-## License
-
-This is a coding assessment submission for DeepScribe.
-
----
-
-**Built with:** Python 3.11, Streamlit, HuggingFace Transformers, Google Gemini, scispaCy  
-**Time invested:** ~5 hours (within 3-5 hour guideline)  
-**Author:** Mansi Garg  
-**Submission Date:** October 28, 2024

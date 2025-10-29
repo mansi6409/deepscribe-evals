@@ -1364,7 +1364,7 @@ streamlit run dashboard/app.py
 ### Documentation
 
 - **`README.md`** - Project overview, features, and quick start
-- **`EVALUATION_GUIDE.md`** (this file) - Complete reference covering:
+- **`In-depth documentation.md`** (this file) - Complete reference covering:
   - Architecture and design decisions
   - Installation and setup (`quickstart.sh`)
   - Usage instructions (all evaluation modes)
@@ -1377,13 +1377,5 @@ streamlit run dashboard/app.py
 ### Key Configuration
 
 See `config.yaml` for all configurable parameters.
-
-### Example Notebooks (Future)
-
-Could add Jupyter notebooks for:
-- Exploring the data
-- Tuning thresholds
-- Analyzing results
-- Comparing models
 
 ---
