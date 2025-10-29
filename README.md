@@ -27,7 +27,7 @@
 **4. Required Deliverables**
 - Code & data processing scripts (`src/`, `run_eval.py`)
 - README with setup instructions (this file + `quickstart.sh`)
-- Approach write-up with tradeoffs (`EVALUATION_GUIDE.md`)
+- Approach write-up with tradeoffs (`In-depth documentation.md`)
 - Sample outputs (JSON reports in `results/`, interactive dashboard)
 - **BONUS**: Streamlit dashboard for exploring results
 
@@ -210,7 +210,7 @@ Below are sample screenshots from the Streamlit dashboard (see `dashboard/sample
 ```
 deepscribe-evals/
 ├── README.md                    # This file - assessment overview
-├── EVALUATION_GUIDE.md          # Comprehensive technical documentation
+├── In-depth documentation.md    # Comprehensive technical documentation
 ├── config.yaml                  # Configurable thresholds and weights
 ├── requirements.txt             # Python dependencies
 ├── quickstart.sh                # Automated setup script
@@ -337,7 +337,7 @@ Run comprehensive end-to-end tests:
 
 ### For Evaluators
 - **README.md** (this file) - Quick overview, setup, deliverables
-- **EVALUATION_GUIDE.md** - Comprehensive technical deep-dive:
+- **In-depth documentation.md** - Comprehensive technical deep-dive:
   - Architecture details and design decisions
   - Detailed metrics and calculations
   - API reference and code structure

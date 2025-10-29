@@ -1114,7 +1114,7 @@ def check_support(self, note_sentences: List[str], transcript_sentences: List[st
 
 **Documentation files:**
 - `README.md` - Project overview and quick start
-- `EVALUATION_GUIDE.md` (this file) - Comprehensive documentation covering architecture, usage, testing, and data structures
+- `In-depth documentation.md` (this file) - Comprehensive documentation covering architecture, usage, testing, and data structures
 
 ### 2. Type Safety
 
