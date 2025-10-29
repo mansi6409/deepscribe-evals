@@ -155,9 +155,7 @@ Our solution balances **speed, cost, and accuracy** using a cascade approach:
 
 ## Sequence Diagram
 
-![Sequence Diagram](dashboard/samples/sequence_diagram.png)
-
-Place your exported image at `dashboard/samples/sequence_diagram.png` (PNG/WebP recommended). If you prefer a different path or filename, update the image reference above accordingly.
+![Sequence Diagram](/sequence_diagram.png)
 
 ---
 
