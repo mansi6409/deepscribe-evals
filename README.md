@@ -155,53 +155,9 @@ Our solution balances **speed, cost, and accuracy** using a cascade approach:
 
 ## Sequence Diagram
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant U as User/CLI
-    participant DL as DataLoader
-    participant P as Pipeline Orchestrator
-    participant T1 as Tier 1 (Deterministic)
-    participant G1 as Gate₁
-    participant T2 as Tier 2 (NLI)
-    participant G2 as Gate₂
-    participant T3 as Tier 3 (LLM Judge)
-    participant W as Writer (results/*.json)
-    participant D as Dashboard (Streamlit)
+![Sequence Diagram](dashboard/samples/sequence_diagram.png)
 
-    U->>DL: load(dataset | synthetic, num_cases)
-    DL-->>U: EvalInput[]
-
-    U->>P: run_eval(mode: fast|standard|thorough, inputs)
-    P->>T1: run(entity_extraction, similarity, structure)
-    T1-->>P: s1, findings_t1
-
-    P->>G1: check(s1, findings_t1, mode)
-    alt G₁ passes (s1>τ₁ or critical)
-        G1-->>P: escalate_to_t2
-        P->>T2: run(retrieve, NLI)
-        T2-->>P: s2, contradictions
-
-        P->>G2: check(s2, contradictions, mode)
-        alt G₂ passes (s2>τ₂ or contradictions)
-            G2-->>P: escalate_to_t3
-            P->>T3: run(LLM-judge with structured prompt)
-            T3-->>P: s3, llm_findings
-        else G₂ fails
-            G2-->>P: stop_at_t2
-        end
-    else G₁ fails
-        G1-->>P: stop_at_t1
-    end
-
-    P->>W: write(results.json with findings, metrics, meta)
-    W-->>U: path to results/*.json
-
-    U->>D: streamlit run dashboard/app.py
-    D->>W: load(results.json)
-    W-->>D: data
-    D-->>U: Case Explorer, metrics, charts
-```
+Place your exported image at `dashboard/samples/sequence_diagram.png` (PNG/WebP recommended). If you prefer a different path or filename, update the image reference above accordingly.
 
 ---
 
