@@ -186,6 +186,16 @@ streamlit run dashboard/app.py
 - Real-time data refresh
 - JSON export for further analysis
 
+### Dashboard Preview
+
+Below are sample screenshots from the Streamlit dashboard (see `dashboard/samples/`):
+
+![Overview](dashboard/samples/Screenshot%202025-10-29%20at%2012.24.56%E2%80%AFAM.png)
+
+![Charts](dashboard/samples/Screenshot%202025-10-29%20at%2012.25.19%E2%80%AFAM.png)
+
+![Case Explorer](dashboard/samples/Screenshot%202025-10-29%20at%2012.25.29%E2%80%AFAM.png)
+
 ---
 
 ## Project Structure
