@@ -5,39 +5,39 @@
 
 ---
 
-## 📋 Challenge Deliverables
+## Challenge Deliverables
 
-### ✅ Core Requirements Met
+### Core Requirements Met
 
 **1. Working Code - Evaluation Suite**
-- ✅ Detects **missing critical findings** (entity extraction + semantic checking)
-- ✅ Flags **hallucinated/unsupported facts** (semantic similarity + NLI)
-- ✅ Identifies **clinical accuracy issues** (contradiction detection + LLM judge)
+- Detects **missing critical findings** (entity extraction + semantic checking)
+- Flags **hallucinated/unsupported facts** (semantic similarity + NLI)
+- Identifies **clinical accuracy issues** (contradiction detection + LLM judge)
 
 **2. Goals Addressed**
-- ✅ **Move Fast**: Tier 1 evaluates notes in <0.05s per case (no LLM calls needed)
-- ✅ **Production Quality**: Multi-dimensional metrics, regression detection, configurable thresholds
+- **Move Fast**: Tier 1 evaluates notes in <0.05s per case (no LLM calls needed)
+- **Production Quality**: Multi-dimensional metrics, regression detection, configurable thresholds
 
 **3. Evaluation Approaches Implemented**
-- ✅ **Deterministic Evals** (Tier 1: NER, embeddings, structure checks) - Fast & cheap
-- ✅ **LLM-as-a-Judge** (Tier 3: Gemini 1.5 Flash) - Thorough & nuanced
-- ✅ **Hybrid Cascade** - Only escalate to expensive tiers when needed
-- ✅ **Reference-Based & Non-Reference** - Works with/without ground truth
+- **Deterministic Evals** (Tier 1: NER, embeddings, structure checks) - Fast & cheap
+- **LLM-as-a-Judge** (Tier 3: Gemini 1.5 Flash) - Thorough & nuanced
+- **Hybrid Cascade** - Only escalate to expensive tiers when needed
+- **Reference-Based & Non-Reference** - Works with/without ground truth
 
 **4. Required Deliverables**
-- ✅ Code & data processing scripts (`src/`, `run_eval.py`)
-- ✅ README with setup instructions (this file + `quickstart.sh`)
-- ✅ Approach write-up with tradeoffs (`EVALUATION_GUIDE.md`)
-- ✅ Sample outputs (JSON reports in `results/`, interactive dashboard)
-- ✅ **BONUS**: Streamlit dashboard for exploring results
+- Code & data processing scripts (`src/`, `run_eval.py`)
+- README with setup instructions (this file + `quickstart.sh`)
+- Approach write-up with tradeoffs (`EVALUATION_GUIDE.md`)
+- Sample outputs (JSON reports in `results/`, interactive dashboard)
+- **BONUS**: Streamlit dashboard for exploring results
 
 **5. Dataset Used**
-- ✅ **Omi-Health SOAP Dataset** (from recommended list)
-- ✅ Synthetic data generation for testing edge cases
+- **Omi-Health SOAP Dataset** (from recommended list)
+- Synthetic data generation for testing edge cases
 
 ---
 
-## 🚀 Quick Start (5 minutes)
+## Quick Start (5 minutes)
 
 ### Prerequisites
 - Python 3.11+
@@ -141,9 +141,9 @@ Our solution balances **speed, cost, and accuracy** using a cascade approach:
 
 | Approach | Speed | Cost | Accuracy | Use Case |
 |----------|-------|------|----------|----------|
-| Deterministic only | ⚡⚡⚡ | Free | 75% | CI/CD, rapid iteration |
-| + NLI | ⚡⚡ | Free | 85% | Pre-production validation |
-| + LLM Judge | ⚡ | $0.001/note | 95% | Production spot-checks |
+| Deterministic only |  | Free | 75% | CI/CD, rapid iteration |
+| + NLI |  | Free | 85% | Pre-production validation |
+| + LLM Judge |  | $0.001/note | 95% | Production spot-checks |
 
 **4. Measuring Eval Quality**
 - Correlation with ground truth (clinician-edited notes)
@@ -153,25 +153,25 @@ Our solution balances **speed, cost, and accuracy** using a cascade approach:
 
 ---
 
-## 📊 Evaluation Modes
+## Evaluation Modes
 
 ```bash
 # Fast Mode (Tier 1 only) - For rapid iteration
 python run_eval.py --mode fast --num-cases 10
-# ⚡ 0.05s/note | $0 | Good for CI/CD
+#  0.05s/note | $0 | Good for CI/CD
 
 # Standard Mode (Tier 1 + 2) - Balanced
 python run_eval.py --mode standard --num-cases 5
-# ⚡ 2s/note | $0 | Good for pre-production
+#  2s/note | $0 | Good for pre-production
 
 # Thorough Mode (All tiers) - Maximum accuracy
 python run_eval.py --mode thorough --num-cases 2
-# ⚡ 5-10s/note | ~$0.001/note | Production spot-checks
+#  5-10s/note | ~$0.001/note | Production spot-checks
 ```
 
 ---
 
-## 📈 Dashboard Features
+## Dashboard Features
 
 Interactive Streamlit dashboard for exploring results:
 
@@ -180,15 +180,15 @@ streamlit run dashboard/app.py
 ```
 
 **Features:**
-- 📊 Aggregate metrics across all evaluations
-- 🔍 Case-by-case explorer with findings
-- 📉 Score distributions and trends
-- 🔄 Real-time data refresh
-- 💾 JSON export for further analysis
+- Aggregate metrics across all evaluations
+- Case-by-case explorer with findings
+- Score distributions and trends
+- Real-time data refresh
+- JSON export for further analysis
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 deepscribe-evals/
@@ -232,7 +232,7 @@ deepscribe-evals/
 
 ---
 
-## 🔧 Configuration
+## Configuration
 
 All thresholds and weights are configurable in `config.yaml`:
 
@@ -264,7 +264,7 @@ Easily tune for your use case without changing code!
 
 ---
 
-## 🧪 Testing
+## Testing
 
 Run comprehensive end-to-end tests:
 
@@ -273,18 +273,18 @@ Run comprehensive end-to-end tests:
 ```
 
 **Tests include:**
-- ✅ All three evaluation modes
-- ✅ Component imports and initialization
-- ✅ Configuration loading
-- ✅ Data model validation
-- ✅ Text processing utilities
-- ✅ JSON output validation
+- All three evaluation modes
+- Component imports and initialization
+- Configuration loading
+- Data model validation
+- Text processing utilities
+- JSON output validation
 
 **Latest Results:** 19/22 tests passing (86% success rate)
 
 ---
 
-## 📊 Sample Results
+## Sample Results
 
 ### Fast Mode (2 cases, 0.03s)
 ```json
@@ -318,7 +318,7 @@ Run comprehensive end-to-end tests:
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 ### For Evaluators
 - **README.md** (this file) - Quick overview, setup, deliverables
@@ -343,31 +343,31 @@ streamlit run dashboard/app.py
 
 ---
 
-## 💡 Key Features
+## Key Features
 
 ### Production-Ready Design
-- ✅ **Graceful degradation** - Works even if optional ML models fail
-- ✅ **Configurable** - All thresholds/weights in `config.yaml`
-- ✅ **Type-safe** - Pydantic models for all data structures
-- ✅ **Comprehensive error handling** - Try-except with fallbacks
-- ✅ **Full docstrings** - Google-style documentation
-- ✅ **Tested** - End-to-end test suite included
+- **Graceful degradation** - Works even if optional ML models fail
+- **Configurable** - All thresholds/weights in `config.yaml`
+- **Type-safe** - Pydantic models for all data structures
+- **Comprehensive error handling** - Try-except with fallbacks
+- **Full docstrings** - Google-style documentation
+- **Tested** - End-to-end test suite included
 
 ### Scalability
-- ✅ **Caching** - Embeddings and NLI results cached
-- ✅ **Batch processing** - Progress bars with tqdm
-- ✅ **Tiered costs** - Pay only for what you need
-- ✅ **Parallel-ready** - Can easily add multiprocessing
+- **Caching** - Embeddings and NLI results cached
+- **Batch processing** - Progress bars with tqdm
+- **Tiered costs** - Pay only for what you need
+- **Parallel-ready** - Can easily add multiprocessing
 
 ### Observability
-- ✅ **Structured outputs** - JSON results with metadata
-- ✅ **Detailed metrics** - Per-case and aggregate statistics
-- ✅ **Interactive dashboard** - Explore findings visually
-- ✅ **Confidence scores** - Uncertainty quantification
+- **Structured outputs** - JSON results with metadata
+- **Detailed metrics** - Per-case and aggregate statistics
+- **Interactive dashboard** - Explore findings visually
+- **Confidence scores** - Uncertainty quantification
 
 ---
 
-## 🎓 What This Demonstrates
+## What This Demonstrates
 
 ### LLM Expertise
 - Sophisticated prompting for LLM-as-judge
@@ -402,7 +402,7 @@ streamlit run dashboard/app.py
 
 ---
 
-## 🚦 Next Steps / Future Enhancements
+## Next Steps / Future Enhancements
 
 ### Immediate Improvements
 1. Add more medical ontologies (UMLS, SNOMED CT)
@@ -424,13 +424,13 @@ streamlit run dashboard/app.py
 
 ---
 
-## 📧 Questions?
+## Questions?
 
 For clarification or discussion, reach out to the DeepScribe team at andrew@deepscribe.ai
 
 ---
 
-## 📄 License
+## License
 
 This is a coding assessment submission for DeepScribe.
 
