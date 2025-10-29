@@ -54,7 +54,8 @@ cd deepscribe-evals
 ./quickstart.sh
 
 # 3. Set API key
-export GEMINI_API_KEY="your-api-key-here"
+cp .env.example .env
+# Edit .env and add your Gemini API key (get free key at https://makersuite.google.com/app/apikey)
 
 # 4. Run evaluation (choose a mode)
 python run_eval.py --mode fast --num-cases 5        # <1s, deterministic only
