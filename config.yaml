@@ -1,0 +1,148 @@
+# DeepScribe Evals Suite Configuration
+
+# Evaluation Modes
+modes:
+  fast:
+    enabled_tiers: [1]
+    description: "Tier 1 only - deterministic checks"
+  
+  standard:
+    enabled_tiers: [1, 2]
+    description: "Tier 1 + conditional Tier 2 (NLI)"
+  
+  thorough:
+    enabled_tiers: [1, 2, 3]
+    description: "All tiers including LLM judge"
+
+# Tier 1: Deterministic Configuration
+tier1:
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  medical_ner_model: "en_core_sci_md"
+  
+  thresholds:
+    unsupported_similarity: 0.72  # τ₁
+    abnormal_length_ratio: 10.0  # note/transcript length ratio
+    severity_major_threshold: 0.5  # Claims with similarity less than this threshold are "major" severity
+  
+  confidence:
+    missing_entity: 0.8
+    hallucinated_entity: 0.7
+  
+  internal_weights:
+    missing: 0.4
+    hallucinated: 0.4
+    unsupported: 0.1
+    section_gap: 0.1
+    normalization: 10.0
+  
+  min_sentence_length: 10  # Skip sentences shorter than this
+    
+  critical_entities:
+    tier_1_blocking:
+      - allergy
+      - medication
+      - vital_abnormal
+      - red_flag_symptom
+    tier_2_important:
+      - diagnosis
+      - procedure
+      - family_history
+    tier_3_nice_to_have:
+      - social_history
+      - normal_vitals
+  
+  red_flag_symptoms:
+    - chest pain
+    - shortness of breath
+    - stroke symptoms
+    - severe headache
+    - loss of consciousness
+    - severe bleeding
+
+# Tier 2: NLI + Retrieval Configuration
+tier2:
+  nli_model: "facebook/bart-large-mnli"
+  retrieval_top_k: 5
+  
+  thresholds:
+    trigger_score: 0.25  # gate₁ - run Tier 2 if Tier 1 score > this
+    contradiction_confidence: 0.8
+    entailment_confidence: 0.5
+  
+  critical_sections:
+    - Allergies
+    - Medications
+    - Vitals
+    - Assessment
+    - Plan
+
+# Tier 3: LLM Judge Configuration
+tier3:
+  primary:
+    provider: "gemini"
+    model: "gemini-1.5-flash"
+    temperature: 0.1
+    max_tokens: 2000
+  
+  thresholds:
+    trigger_score: 0.15  # gate₂ - run Tier 3 if Tier 2 score > this
+    
+  budget:
+    max_notes_per_run: 20
+    max_tokens_per_note: 8000
+    max_cost_per_run_usd: 0.0  # Free tier
+  
+  retry:
+    max_attempts: 3
+    backoff_seconds: 2
+
+# Scoring Weights
+scoring:
+  weights:
+    w1_missing_critical: 0.35
+    w2_hallucinated_critical: 0.35
+    w3_contradicted: 0.20
+    w4_unsafe_llm_flags: 0.05
+    w5_section_gap_penalty: 0.05
+  
+  section_weights:
+    Allergies: 3.0
+    Medications: 3.0
+    Vitals: 2.0
+    Assessment: 2.0
+    Plan: 2.0
+    Subjective: 1.0
+    Objective: 1.5
+
+# Data Configuration
+data:
+  dataset_name: "omi-health/medical-dialogue-to-soap-summary"
+  sample_size: 100
+  cache_dir: "data/processed"
+  
+  synthetic_errors:
+    enabled: true
+    num_perturbations: 30
+    error_types:
+      - missing_medication
+      - missing_allergy
+      - halluc_diagnosis
+      - wrong_dosage
+      - contradicted_fact
+      - unsupported_fact
+
+# Output Configuration
+output:
+  results_dir: "results"
+  format: "json"
+  include_evidence: true
+  include_confidence: true
+  save_intermediate: true
+
+# Performance
+performance:
+  parallel_tier1: true
+  max_workers: 8
+  batch_size: 10
+  cache_embeddings: true
+
