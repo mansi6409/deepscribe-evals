@@ -44,8 +44,8 @@
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/YOUR_USERNAME/deepscribe-evals.git
-cd deepscribe-evals
+git clone https://github.com/YOUR_USERNAME/evaluation-suite-for-LLM-content.git
+cd evaluation-suite-for-LLM-content
 
 # 2. Run automated setup (creates venv, installs dependencies)
 ./quickstart.sh
