@@ -205,7 +205,7 @@ Below are screenshots from the Streamlit dashboard (see `dashboard/samples/`):
 ## Project Structure
 
 ```
-deepscribe-evals/
+evaluation-suite-for-LLM-content/
 ├── README.md                    
 ├── In-depth documentation.md    # Comprehensive technical documentation
 ├── config.yaml                  # Configurable thresholds and weights
