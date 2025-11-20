@@ -1,13 +1,10 @@
-# DeepScribe SOAP Note Evaluation Suite
+# SOAP Note Evaluation Suite
 
-**Option 1: Evals Suite** - AI Coding Assessment  
 *A hybrid, scalable, and cost-effective evaluation framework for clinical documentation*
 
 ---
 
 ## Challenge Deliverables
-
-### Core Requirements Met
 
 **1. Working Code - Evaluation Suite**
 - Detects **missing critical findings** (entity extraction + semantic checking)
@@ -29,15 +26,15 @@
 - README with setup instructions (this file + `quickstart.sh`)
 - Approach write-up with tradeoffs (`In-depth documentation.md`)
 - Sample outputs (JSON reports in `results/`, interactive dashboard)
-- **BONUS**: Streamlit dashboard for exploring results
+- Streamlit dashboard for exploring results
 
 **5. Dataset Used**
-- **Omi-Health SOAP Dataset** (from recommended list)
+- **Omi-Health SOAP Dataset**
 - Synthetic data generation for testing edge cases
 
 ---
 
-## Quick Start (5 minutes)
+## Quick Start
 
 ### Prerequisites
 - Python 3.11+
@@ -67,7 +64,7 @@ streamlit run dashboard/app.py
 # Opens at http://localhost:8501
 ```
 
-### Sample Output
+### Output Preview
 
 ```
 ============================================================
@@ -195,7 +192,7 @@ streamlit run dashboard/app.py
 
 ### Dashboard Preview
 
-Below are sample screenshots from the Streamlit dashboard (see `dashboard/samples/`):
+Below are screenshots from the Streamlit dashboard (see `dashboard/samples/`):
 
 ![Overview](dashboard/samples/Screenshot%202025-10-29%20at%2012.24.56%E2%80%AFAM.png)
 
@@ -209,7 +206,7 @@ Below are sample screenshots from the Streamlit dashboard (see `dashboard/sample
 
 ```
 deepscribe-evals/
-├── README.md                    # This file - assessment overview
+├── README.md                    
 ├── In-depth documentation.md    # Comprehensive technical documentation
 ├── config.yaml                  # Configurable thresholds and weights
 ├── requirements.txt             # Python dependencies
@@ -299,7 +296,7 @@ Run comprehensive end-to-end tests:
 
 ---
 
-## Sample Results
+## Results
 
 ### Fast Mode (2 cases, 0.03s)
 ```json
@@ -334,16 +331,6 @@ Run comprehensive end-to-end tests:
 ---
 
 ## Documentation
-
-### For Evaluators
-- **README.md** (this file) - Quick overview, setup, deliverables
-- **In-depth documentation.md** - Comprehensive technical deep-dive:
-  - Architecture details and design decisions
-  - Detailed metrics and calculations
-  - API reference and code structure
-  - Testing methodology
-  - Deployment considerations
-
 ### For Users
 ```bash
 # Quick start
@@ -382,42 +369,7 @@ streamlit run dashboard/app.py
 
 ---
 
-## What This Demonstrates
-
-### LLM Expertise
-- Sophisticated prompting for LLM-as-judge
-- Cascade architecture to minimize LLM usage
-- Structured outputs with validation
-- Cost optimization strategies
-
-### ML Foundations
-- Medical NER (scispaCy, rule-based)
-- Semantic similarity (sentence-transformers)
-- NLI for contradiction detection
-- Embedding-based retrieval
-
-### Software Craft
-- Clean, modular architecture
-- Comprehensive documentation
-- Error handling and fallbacks
-- Type safety with Pydantic
-- Configuration management
-
-### Communication
-- Clear problem framing
-- Thoughtful tradeoff analysis
-- Reproducible instructions
-- Sample outputs included
-
-### Execution
-- End-to-end working system
-- Polished user experience
-- Exceeds requirements (bonus dashboard)
-- Production considerations
-
----
-
-## Next Steps / Future Enhancements
+## Future Enhancements
 
 ### Immediate Improvements
 1. Add more medical ontologies (UMLS, SNOMED CT)
